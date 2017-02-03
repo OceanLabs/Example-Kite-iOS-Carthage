@@ -12,6 +12,7 @@
 		2E8CA9DB1E4494FE000E6FD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E8CA9D91E4494FE000E6FD2 /* Main.storyboard */; };
 		2E8CA9DD1E4494FE000E6FD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E8CA9DC1E4494FE000E6FD2 /* Assets.xcassets */; };
 		2E8CA9E01E4494FE000E6FD2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E8CA9DE1E4494FE000E6FD2 /* LaunchScreen.storyboard */; };
+		2E8CA9E91E449B7C000E6FD2 /* KiteSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8CA9E81E449B7C000E6FD2 /* KiteSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		2E8CA9DC1E4494FE000E6FD2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2E8CA9DF1E4494FE000E6FD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2E8CA9E11E4494FE000E6FD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E8CA9E81E449B7C000E6FD2 /* KiteSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KiteSDK.framework; path = Carthage/Build/iOS/KiteSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E8CA9E91E449B7C000E6FD2 /* KiteSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +43,7 @@
 			children = (
 				2E8CA9D41E4494FE000E6FD2 /* Example-Kite-iOS-Carthage */,
 				2E8CA9D31E4494FE000E6FD2 /* Products */,
+				2E8CA9E71E449B7A000E6FD2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +68,14 @@
 			path = "Example-Kite-iOS-Carthage";
 			sourceTree = "<group>";
 		};
+		2E8CA9E71E449B7A000E6FD2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2E8CA9E81E449B7C000E6FD2 /* KiteSDK.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,6 +86,7 @@
 				2E8CA9CE1E4494FE000E6FD2 /* Sources */,
 				2E8CA9CF1E4494FE000E6FD2 /* Frameworks */,
 				2E8CA9D01E4494FE000E6FD2 /* Resources */,
+				2E8CA9EA1E449BA2000E6FD2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -131,6 +144,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2E8CA9EA1E449BA2000E6FD2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)//Carthage/Build/iOS/KiteSDK.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2E8CA9CE1E4494FE000E6FD2 /* Sources */ = {
@@ -262,6 +292,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = L78L4U72YJ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "Example-Kite-iOS-Carthage/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ly.kite.Example-Kite-iOS-Carthage";
@@ -275,6 +309,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = L78L4U72YJ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "Example-Kite-iOS-Carthage/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ly.kite.Example-Kite-iOS-Carthage";
@@ -302,6 +340,7 @@
 				2E8CA9E61E4494FE000E6FD2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
